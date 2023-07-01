@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 
 data = pd.read_csv('MSFT.csv', index_col='Date')
 
-data['ma10'] = data['Close'].rolling(10).mean()
-data['ma50'] = data['Close'].rolling(50).mean()
+data['ma10'] = data['Open'].rolling(10).mean()
+data['ma50'] = data['Open'].rolling(50).mean()
 
 #print(data)
 #data[['Close','ma10','ma50']].plot()
