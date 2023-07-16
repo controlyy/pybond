@@ -29,3 +29,17 @@ def get_death_cross(data, fast_ma, slow_ma):
 
     return death_cross
     
+
+def add_avg_price(data):
+    data['Avg'] = (data['Open'] + data['Close']) / 2
+    return data
+
+def get_days_duration(data):
+    d1 = pd.to_datetime(data.index[0])
+    d2 = pd.to_datetime(data.index[-1])
+    diff = d2 - d1
+    return diff.days
+
+def get_years_duration(data):
+    days = get_days_duration(data)
+    return (days/365)
