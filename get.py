@@ -1,7 +1,12 @@
 import yfinance as yf
 
-data = yf.download("MSFT", start="2018-01-01")
+ticker = 'JPM'
 
-print(data)
+data = yf.download(ticker, start="2015-01-01")
 
-data.to_csv('MSFT.csv')
+#print(data)
+
+data.to_csv(ticker + '.csv')
+
+company = yf.Ticker(ticker)
+company.dividends.to_csv(ticker + '_dividend.csv')

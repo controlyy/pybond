@@ -1,7 +1,10 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('MSFT.csv', index_col='Date')
+import get_cross as get_cross
+
+data = pd.read_csv('data/MSFT.csv', index_col='Date')
+data_origin = data
 
 data['ma10'] = data['Open'].rolling(10).mean()
 data['ma50'] = data['Open'].rolling(50).mean()
@@ -31,16 +34,13 @@ sr2 = data['ma10'] >= data['ma50']
 death_cross = data[sr1 & sr2.shift(1)].index
 golden_cross = data[~(sr1 | sr2.shift(1))].index
 
-#print(death_cross)
-#print(golden_cross)
-
 money = 10000
 hold = 0
 
 sr1 = pd.Series(1, index=golden_cross)
 sr2 = pd.Series(0, index=death_cross)
 
-sr = sr1.append(sr2).sort_index()
+sr = sr1._append(sr2).sort_index()
 
 for i in range(0, len(sr)):
     price = data['Open'][sr.index[i]]

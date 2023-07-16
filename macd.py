@@ -69,6 +69,8 @@ mpf.plot(df,
          volume=True,
          addplot=plots,
          panel_ratios=(3, 1, 3, 3),
-         figscale=1.5)
+         figscale=1.5#,
+         #savefig='1.png'
+         )
 
 #plt.show()
