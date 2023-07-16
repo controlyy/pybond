@@ -3,9 +3,10 @@ import matplotlib.pyplot as plt
 
 import utility
 
+
 def cal_return_by_cross(data, fast_ma, slow_ma, commission_fee):
-    golden_cross = utility.get_golden_cross(data,fast_ma,slow_ma)
-    death_cross = utility.get_death_cross(data,fast_ma,slow_ma)
+    golden_cross = utility.get_golden_cross(data, fast_ma, slow_ma)
+    death_cross = utility.get_death_cross(data, fast_ma, slow_ma)
 
     money_invest = 1000000000
     money_hold = money_invest
